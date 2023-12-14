@@ -3,7 +3,6 @@ A web application to assist in playing the New York Times Wordle game.
 
 ## How to Run Locally
 To run the application locally, simply type the following command in the terminal:
-```bash
 npm start
 
 The application will run on port 3000 unless a different port is defined in the environment variables.
