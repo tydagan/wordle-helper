@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Helper</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <!-- Welcome Page -->
+    <div id="enterPage">
+        <h1>Wordle Helper</h1>
+        <button id="enterButton">Enter</button>
+    </div>
+
+    <div id="history"></div>
+    <!-- Helper Page -->
+    <div id="helperPage" style="display: none;">
+        <h1>Wordle Helper</h1>
+        <form id="wordleForm">
+            <!-- Correct Letters -->
+            <label for="correctLetters">Correct Letters:</label>
+            <div class="letterInputs">
+                <input type="text" class="correctInput" data-type="correct">
+                <input type="text" class="correctInput" data-type="correct">
+                <input type="text" class="correctInput" data-type="correct">
+                <input type="text" class="correctInput" data-type="correct">
+                <input type="text" class="correctInput" data-type="correct">
+            </div>
+            
+            <!-- Valid Letters -->
+            <label for="validLetters">Valid Letters:</label>
+            <div class="letterInputs">
+                <input type="text" class="validInput" data-type="valid">
+                <input type="text" class="validInput" data-type="valid">
+                <input type="text" class="validInput" data-type="valid">
+                <input type="text" class="validInput" data-type="valid">
+                <input type="text" class="validInput" data-type="valid">
+            </div>
+
+            <!-- Absent Letters -->
+            <label for="absentLetters">Absent Letters:</label>
+            <div class="absentButtons"></div>
+            <button type="button" onclick="updateWordList()">Update</button>
+        </form>
+        
+    </div>
+    <!-- Display Word List Here -->
+    <div id="wordList"></div>
+    
+    <!-- Display History Here -->
+    <!-- <div class="history" id="history"></div> -->
+
+    <script type="module" src="wordleHelper.js"></script>
+
+    <script>
+        async function showHelperPage() {
+            document.getElementById('enterPage').style.display = 'none';
+            document.getElementById('helperPage').style.display = 'block';
+            //generateAbsentLetterButtons();
+            
+            //await new Promise(resolve => setTimeout(resolve, 100));
+            await new Promise(resolve => requestAnimationFrame(resolve));
+
+            const selectedAbsentLetters = document.querySelectorAll('.absentButton.selected');
+            console.log('Selected absent letters from localStorage:', selectedAbsentLetters);
+
+            selectedAbsentLetters.forEach(button => {
+                const letter = button.dataset.letter;
+                console.log('Toggling absent letter:', letter);
+                toggleAbsentLetter(letter);
+            });
+            
+            const data = await readHistory();
+            displayHistory(data);
+        }
+        
+        function toggleAbsentLetter(letter) {
+            const button = document.querySelector(`.absentButton[data-letter="${letter}"]`);
+            button.classList.toggle('selected');
+        }
+
+    </script>
+
+</body>
+
+</html>

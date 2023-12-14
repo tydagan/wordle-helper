@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #29977a; /* Mint green background color */
+    color: white; /* White text color */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+#enterPage, #helperPage {
+    padding: 15px;
+    grid-column: 2;
+}
+
+#enterPage {
+    grid-column: span 3; /* Make the welcome page span all columns */
+    font-family: 'Merriweather', serif;
+}
+
+#enterPage h1 {
+    font-size: 117px; /* Adjust the font size as needed */
+}
+
+#enterButton {
+    font-size: 20px; /* Adjust the font size as needed */
+    padding: 15px 30px; /* Adjust the padding as needed */
+    margin-top: -40px;
+}
+
+#wordleForm {
+    text-align: center; /* Align the form content to the left within its container */
+    background-color: rgb(242, 238, 228);
+    color: black;
+    border-radius: 15px; /* Adjust the border-radius as needed */
+    width: 370px;
+    padding: 20px;
+}
+
+#helperPage h1 {
+    font-size: 60px; /* Adjust the font size as needed */
+    font-family: 'Merriweather', serif; /* Use Merriweather font */
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.history {
+    grid-column: 1; /* Position the history on the left third */
+    text-align: left; /* Align the content within the history to the left */
+    margin-top: 36px; /* Add some top margin for separation */
+    font-size: 18px; /* Adjust the font size as needed */
+    font-family: 'Merriweather', serif;
+    max-height: 400px; /* Set a maximum height for the history */
+    overflow-y: auto; /* Add a vertical scrollbar if content exceeds the max height */
+    padding: 10px; /* Add padding to the history */
+    background-color: #A9A9A9; /* Set background color for the history */
+    color: white; /* Set text color for the history */
+}
+
+#history button {
+    margin-top: 20px;
+}
+
+#wordList {
+    grid-column: 3 / span 1; /* Position the word list on the right third */
+    text-align: center; /* Align the content within the word list to the left */
+    margin-top: 20px; /* Add some top margin for separation */
+    font-size: 32px;
+}
+
+input {
+    margin: 10px;
+    padding: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: white; /* White button background color */
+    color: #29977a; /* Mint green button text color */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #A9A9A9; /* Dark gray on hover */
+    color: white;
+}
+
+.absentButton {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+.absentButton.selected {
+    background-color: grey;
+    color: black;
+}
+
+.correctInput,
+.validInput {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center; /* Center the text horizontally */
+    line-height: 40px; /* Center the text vertically */
+    margin-right: 5px; /* Add spacing between squares */
+    /* box-shadow: 0 0 0 2px transparent; */
+    border: 2px solid transparent;
+}
+
+label {
+    margin-bottom: 20px; /* Adjust the margin as needed */
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: 'Merriweather', serif;
+}
+
+
+.correctInput:focus {
+    border: 2px solid green; /* Set the border color for correct input when focused */
+    outline: none; /* Remove the default focus outline */
+}
+
+.validInput:focus {
+    border: 2px solid darkgoldenrod; /* Set the border color for valid input when focused */
+    outline: none; /* Remove the default focus outline */
+}
+
